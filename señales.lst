@@ -1,0 +1,185 @@
+CCS PCH C Compiler, Version 4.065, 60563               04-sep-16 11:18
+
+               Filename: C:\Users\Andersson\Desktop\adqui\señales.lst
+
+               ROM used: 222 bytes (1%)
+                         Largest free fragment is 32546
+               RAM used: 7 (0%) at main() level
+                         8 (1%) worst case
+               Stack:    1 locations
+
+*
+0000:  GOTO   002C
+.................... #include <18f452.h> 
+.................... //////// Standard Header file for the PIC18F452 device //////////////// 
+.................... #device PIC18F452 
+.................... #list 
+....................  
+.................... #use delay(clock=4000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  07
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    002A
+000E:  MOVLW  01
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  4A
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  BRA    0026
+0026:  DECFSZ FEF,F
+0028:  BRA    000E
+002A:  RETLW  00
+.................... #fuses xt,noprotect,nowdt 
+.................... #byte trisa=0x85 
+.................... #byte porta=0x05 
+.................... #byte trisb=0x86 
+.................... #byte portb=0x06 
+....................  
+.................... int conteo=0; 
+.................... void main (){ 
+002C:  CLRF   FF8
+002E:  BCF    FD0.7
+0030:  CLRF   FEA
+0032:  CLRF   FE9
+0034:  BSF    FC1.0
+0036:  BSF    FC1.1
+0038:  BSF    FC1.2
+003A:  BCF    FC1.3
+003C:  CLRF   05
+....................      
+.................... inicio: 
+....................  
+.................... if (input_state(pin_d0)==1) {conteo=0;delay_ms(500);;goto sierra;} 
+003E:  BTFSS  F83.0
+0040:  BRA    0056
+0042:  CLRF   05
+0044:  MOVLW  02
+0046:  MOVWF  06
+0048:  MOVLW  FA
+004A:  MOVWF  07
+004C:  RCALL  0004
+004E:  DECFSZ 06,F
+0050:  BRA    0048
+0052:  BRA    0078
+.................... else 
+0054:  BRA    0070
+....................  
+.................... if (input_state(pin_d1)==1) {conteo=0;delay_ms(500);goto triangulo;} 
+0056:  BTFSS  F83.1
+0058:  BRA    006E
+005A:  CLRF   05
+005C:  MOVLW  02
+005E:  MOVWF  06
+0060:  MOVLW  FA
+0062:  MOVWF  07
+0064:  RCALL  0004
+0066:  DECFSZ 06,F
+0068:  BRA    0060
+006A:  BRA    0094
+.................... else 
+006C:  BRA    0070
+.................... conteo=0; 
+006E:  CLRF   05
+.................... output_b(conteo); 
+0070:  CLRF   F93
+0072:  MOVFF  05,F8A
+....................  
+.................... goto inicio; 
+0076:  BRA    003E
+....................  
+.................... sierra: 
+.................... conteo ++; 
+0078:  INCF   05,F
+.................... output_b(conteo); 
+007A:  CLRF   F93
+007C:  MOVFF  05,F8A
+.................... delay_us(60); 
+0080:  MOVLW  13
+0082:  MOVWF  00
+0084:  DECFSZ 00,F
+0086:  BRA    0084
+0088:  BRA    008A
+.................... if (input_state(pin_d0)==0) {;goto inicio;} 
+008A:  BTFSC  F83.0
+008C:  BRA    0092
+008E:  BRA    003E
+.................... else 
+0090:  BRA    0094
+.................... goto sierra; 
+0092:  BRA    0078
+....................  
+.................... triangulo: 
+....................  
+.................... conteo++; 
+0094:  INCF   05,F
+.................... delay_us(60); 
+0096:  MOVLW  13
+0098:  MOVWF  00
+009A:  DECFSZ 00,F
+009C:  BRA    009A
+009E:  BRA    00A0
+.................... output_b(conteo); 
+00A0:  CLRF   F93
+00A2:  MOVFF  05,F8A
+.................... if (conteo== 255) {goto desendente;} 
+00A6:  INCFSZ 05,W
+00A8:  BRA    00AE
+00AA:  BRA    00B8
+.................... else 
+00AC:  BRA    00B8
+.................... if (input_state(pin_d1)==0) {;goto inicio;} 
+00AE:  BTFSC  F83.1
+00B0:  BRA    00B6
+00B2:  BRA    003E
+.................... else    
+00B4:  BRA    00B8
+.................... goto triangulo;   
+00B6:  BRA    0094
+....................  
+.................... desendente: 
+.................... conteo--; 
+00B8:  DECF   05,F
+.................... delay_us(60); 
+00BA:  MOVLW  13
+00BC:  MOVWF  00
+00BE:  DECFSZ 00,F
+00C0:  BRA    00BE
+00C2:  BRA    00C4
+.................... output_b(conteo); 
+00C4:  CLRF   F93
+00C6:  MOVFF  05,F8A
+.................... if(conteo==0) {goto triangulo;} 
+00CA:  MOVF   05,F
+00CC:  BNZ   00D2
+00CE:  BRA    0094
+.................... else 
+00D0:  BRA    00DC
+.................... if (input_state(pin_d1)==0) {;goto inicio;} 
+00D2:  BTFSC  F83.1
+00D4:  BRA    00DA
+00D6:  BRA    003E
+.................... else 
+00D8:  BRA    00DC
+....................  
+.................... goto desendente;     
+00DA:  BRA    00B8
+.................... } 
+....................  
+....................  
+00DC:  SLEEP 
+
+Configuration Fuses:
+   Word  1: 2100   XT NOOSCSEN
+   Word  2: 0E0E   BROWNOUT WDT128 NOWDT BORV20 PUT
+   Word  3: 0100   CCP2C1
+   Word  4: 0081   STVREN NODEBUG NOLVP
+   Word  5: C00F   NOPROTECT NOCPD NOCPB
+   Word  6: E00F   NOWRT NOWRTD NOWRTB NOWRTC
+   Word  7: 400F   NOEBTR NOEBTRB

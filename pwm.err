@@ -1,0 +1,6 @@
+>>> Warning 203 "pwm.c" Line 20(1,1): Condition always TRUE
+>>> Warning 202 "pwm.c" Line 12(7,11): Variable never used:   duty
+>>> Warning 202 "pwm.c" Line 12(13,23): Variable never used:   dutyinicia
+>>> Warning 202 "pwm.c" Line 13(6,9): Variable never used:   out
+      Memory usage:   ROM=5%      RAM=1% - 2%
+      0 Errors,  4 Warnings.

@@ -1,0 +1,6 @@
+>>> Warning 202 "dimer.c" Line 10(5,11): Variable never used:   conteo
+>>> Warning 202 "dimer.c" Line 11(7,8): Variable never used:   X
+>>> Warning 202 "dimer.c" Line 11(14,19): Variable never used:   DATA1
+>>> Warning 202 "dimer.c" Line 11(20,25): Variable never used:   DATA2
+      Memory usage:   ROM=0%      RAM=1% - 1%
+      0 Errors,  4 Warnings.

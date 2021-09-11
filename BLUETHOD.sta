@@ -1,0 +1,46 @@
+
+ROM used: 416 (1%)
+          416 (1%) including unused fragments
+
+          1 Average locations per line
+          11 Average locations per statement
+
+RAM used: 37 (2%) at main() level
+          38 (2%) worst case
+
+Stack used: 2 worst case (out of 30 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   80    37 100  BLUETHOD.c
+  332     0   0  ..\..\..\..\PROGRA~2\PICC\devices\18f452.h
+----- -----
+  412    37 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     42   5   1             @delay_ms1
+0    198  24   1   762  4.8  main
+0     22   3   0    35  1.6  serial_isr
+
+Program metrics:
+    Functions               2
+    Statements              37
+    Comments                80
+    Volume (V)              857
+    Difficilty (D)          6.5
+    Effort to implement (E) 5598
+    Time to implement (T)   5 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   4
+    Maintainability (MI)    74
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-00006     0  4  
+00008-0009C   150  0  
+0009E-07FFE   262  32348  
+
+
+

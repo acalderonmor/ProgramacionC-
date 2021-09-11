@@ -1,0 +1,98 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+006-007 main.voltaje
+007     portc
+008-00B main.visualizacion
+00C-00F main.out
+010-013 main.sumaxy
+014-015 main.voltaje1
+016-019 main.visualizacion1
+01A-01D main.out1
+01E-01F @ITOF.P1
+01E-021 @FLT.P2
+01E-021 @MULFF.P3
+01E-021 @ADDFF.P4
+01E     main.@SCRATCH1
+01F     main.@SCRATCH2
+020     main.@SCRATCH3
+021     main.@SCRATCH4
+022-025 @MULFF.P1
+022-025 @ADDFF.P2
+022-025 @DIVFF.P3
+022-025 @FLT.P4
+026-029 @DIVFF.P1
+026     @MULFF.@SCRATCH1
+026     @ADDFF.@SCRATCH1
+026     @FLT.@SCRATCH1
+027     @MULFF.@SCRATCH2
+027     @ADDFF.@SCRATCH2
+027     @FLT.@SCRATCH2
+028     @MULFF.@SCRATCH3
+028     @ADDFF.@SCRATCH3
+029     @ADDFF.@SCRATCH4
+02A     @DIVFF.@SCRATCH1
+02A     @ADDFF.@SCRATCH5
+02B     @DIVFF.@SCRATCH2
+02B     @ADDFF.@SCRATCH6
+02C     @DIVFF.@SCRATCH3
+02C     @ADDFF.@SCRATCH7
+02D     @DIVFF.@SCRATCH4
+02D     @ADDFF.@SCRATCH8
+02E     @DIVFF.@SCRATCH5
+02F     @DIVFF.@SCRATCH6
+087     trisc
+F83     PSP_DATA
+FBB-FBC CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE-FBF CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0568  main
+0004  @ITOF
+003A  @MULFF
+012C  @DIVFF
+0286  @ADDFF
+04F2  @FLT
+0568  @cinit
+02BC  inicio
+03C6  sigue
+
+Project Directory:
+    C:\Users\Andersson\Desktop\adqui\
+
+Project Files:
+    panel.c
+    ..\..\..\..\Program Files (x86)\PICC\devices\18f452.h
+
+Units:
+    C:\Users\Andersson\Desktop\adqui\panel.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      panel.err
+    Ext Symbols: panel.esym
+    INHX32:      panel.hex
+    Symbols:     panel.sym
+    List:        panel.lst
+    Debug/COFF:  panel.cof
+    Project:     panel.PJT
+    Call Tree:   panel.tre
+    Statistics:  panel.sta

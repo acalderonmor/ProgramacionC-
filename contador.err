@@ -1,0 +1,5 @@
+*** Error 18 "contador.c" Line 1(9,19): File can not be opened
+    Not in local "C:\Users\Andersson\Desktop\adqui\18f452.h"
+*** Error 111 "contador.c" Line 3(7,26): Unknown keyword in #FUSES   "NOWDT"
+*** Error 128 "contador.c" Line 4(2,6): A #DEVICE required before this line
+      3 Errors,  0 Warnings.

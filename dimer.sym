@@ -1,0 +1,67 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     porta
+005     conteo
+006-007 X
+006     portB
+008     portD
+008-009 DATA1
+00A-00B DATA2
+00C     @delay_us1.P1
+00C     @delay_ms1.P2
+00C     main.@SCRATCH1
+085     trisa
+086     trisB
+088     trisD
+F83     PSP_DATA
+FBB     CCP_2_LOW
+FBB-FBC CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0004  @delay_ms1
+002C  @delay_us1
+0052  main
+0052  @cinit
+0036  inicio
+003B  tiempo
+
+Project Directory:
+    C:\Users\Andersson\Desktop\adqui\
+
+Project Files:
+    dimer.c
+    ..\..\..\..\PROGRA~2\PICC\devices\18f452.h
+
+Units:
+    C:\Users\Andersson\Desktop\adqui\dimer.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      dimer.err
+    Ext Symbols: dimer.esym
+    INHX32:      dimer.hex
+    Symbols:     dimer.sym
+    List:        dimer.lst
+    Debug/COFF:  dimer.cof
+    Project:     dimer.PJT
+    Call Tree:   dimer.tre
+    Statistics:  dimer.sta

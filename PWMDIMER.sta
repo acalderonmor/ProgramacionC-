@@ -1,0 +1,42 @@
+
+ROM used: 72 (0%)
+          72 (0%) including unused fragments
+
+          0 Average locations per line
+          7 Average locations per statement
+
+RAM used: 19 (1%) at main() level
+          19 (1%) worst case
+
+Stack used: 0 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   35    10 100  PWMDIMER.c
+  332     0   0  ..\..\..\..\PROGRA~2\PICC\devices\18f452.h
+----- -----
+  367    10 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0     68  47   1   190  4.0  main
+
+Program metrics:
+    Functions               1
+    Statements              10
+    Comments                80
+    Volume (V)              190
+    Difficilty (D)          4.0
+    Effort to implement (E) 761
+    Time to implement (T)   1 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   1
+    Maintainability (MI)    154
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE    68  32696  
+
+
+

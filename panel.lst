@@ -1,0 +1,364 @@
+CCS PCH C Compiler, Version 4.065, 60563               02-sep-16 08:52
+
+               Filename: C:\Users\Andersson\Desktop\adqui\panel.lst
+
+               ROM used: 2086 bytes (6%)
+                         Largest free fragment is 30682
+               RAM used: 33 (2%) at main() level
+                         47 (3%) worst case
+               Stack:    1 locations
+
+*
+0000:  GOTO   0568
+.................... #include <18f452.h> 
+.................... //////// Standard Header file for the PIC18F452 device //////////////// 
+.................... #device PIC18F452 
+.................... #list 
+....................  
+.................... #device ADC = 10 
+.................... #fuses XT,NOWDT 
+.................... #use delay(clock = 4000000) 
+.................... #byte trisc=0x87 
+.................... #byte portc=0x07 
+....................  
+....................  
+.................... void main (){ 
+0568:  CLRF   FF8
+056A:  BCF    FD0.7
+056C:  CLRF   FEA
+056E:  CLRF   FE9
+0570:  BSF    FC1.0
+0572:  BSF    FC1.1
+0574:  BSF    FC1.2
+0576:  BCF    FC1.3
+.................... int16 voltaje; 
+.................... float visualizacion, out;  
+.................... float sumaxy; 
+.................... int16 voltaje1; 
+.................... float visualizacion1, out1;  
+....................  
+....................      
+.................... inicio: 
+....................  
+.................... setup_adc_ports(AN0); 
+0578:  BCF    FC1.0
+057A:  BSF    FC1.1
+057C:  BSF    FC1.2
+057E:  BSF    FC1.3
+....................      
+....................  
+.................... setup_adc(ADC_CLOCK_INTERNAL); 
+0580:  BCF    FC1.6
+0582:  BSF    FC2.6
+0584:  BSF    FC2.7
+0586:  BSF    FC1.7
+0588:  BSF    FC2.0
+.................... set_adc_channel(0); 
+058A:  MOVLW  00
+058C:  MOVWF  01
+058E:  MOVF   FC2,W
+0590:  ANDLW  C7
+0592:  IORWF  01,W
+0594:  MOVWF  FC2
+.................... delay_us(50); 
+0596:  MOVLW  10
+0598:  MOVWF  00
+059A:  DECFSZ 00,F
+059C:  BRA    059A
+059E:  NOP   
+.................... voltaje = read_adc(); 
+05A0:  BSF    FC2.2
+05A2:  BTFSC  FC2.2
+05A4:  BRA    05A2
+05A6:  MOVFF  FC3,06
+05AA:  MOVFF  FC4,07
+.................... visualizacion=(5.0*voltaje)/1023.0; 
+05AE:  MOVFF  07,1F
+05B2:  MOVFF  06,1E
+05B6:  RCALL  0004
+05B8:  CLRF   21
+05BA:  CLRF   20
+05BC:  MOVLW  20
+05BE:  MOVWF  1F
+05C0:  MOVLW  81
+05C2:  MOVWF  1E
+05C4:  MOVFF  03,25
+05C8:  MOVFF  02,24
+05CC:  MOVFF  01,23
+05D0:  MOVFF  00,22
+05D4:  RCALL  003A
+05D6:  MOVFF  00,1E
+05DA:  MOVFF  01,1F
+05DE:  MOVFF  02,20
+05E2:  MOVFF  03,21
+05E6:  MOVFF  03,25
+05EA:  MOVFF  02,24
+05EE:  MOVFF  01,23
+05F2:  MOVFF  00,22
+05F6:  CLRF   29
+05F8:  MOVLW  C0
+05FA:  MOVWF  28
+05FC:  MOVLW  7F
+05FE:  MOVWF  27
+0600:  MOVLW  88
+0602:  MOVWF  26
+0604:  RCALL  012C
+0606:  MOVFF  03,0B
+060A:  MOVFF  02,0A
+060E:  MOVFF  01,09
+0612:  MOVFF  00,08
+.................... out= visualizacion; 
+0616:  MOVFF  0B,0F
+061A:  MOVFF  0A,0E
+061E:  MOVFF  09,0D
+0622:  MOVFF  08,0C
+....................  
+....................  
+....................  
+.................... set_adc_channel(1); 
+0626:  MOVLW  08
+0628:  MOVWF  01
+062A:  MOVF   FC2,W
+062C:  ANDLW  C7
+062E:  IORWF  01,W
+0630:  MOVWF  FC2
+.................... delay_us(50); 
+0632:  MOVLW  10
+0634:  MOVWF  00
+0636:  DECFSZ 00,F
+0638:  BRA    0636
+063A:  NOP   
+.................... voltaje1 = read_adc(); 
+063C:  BSF    FC2.2
+063E:  BTFSC  FC2.2
+0640:  BRA    063E
+0642:  MOVFF  FC3,14
+0646:  MOVFF  FC4,15
+.................... visualizacion1=(5.0*voltaje1)/1023.0; 
+064A:  MOVFF  15,1F
+064E:  MOVFF  14,1E
+0652:  RCALL  0004
+0654:  CLRF   21
+0656:  CLRF   20
+0658:  MOVLW  20
+065A:  MOVWF  1F
+065C:  MOVLW  81
+065E:  MOVWF  1E
+0660:  MOVFF  03,25
+0664:  MOVFF  02,24
+0668:  MOVFF  01,23
+066C:  MOVFF  00,22
+0670:  RCALL  003A
+0672:  MOVFF  00,1E
+0676:  MOVFF  01,1F
+067A:  MOVFF  02,20
+067E:  MOVFF  03,21
+0682:  MOVFF  03,25
+0686:  MOVFF  02,24
+068A:  MOVFF  01,23
+068E:  MOVFF  00,22
+0692:  CLRF   29
+0694:  MOVLW  C0
+0696:  MOVWF  28
+0698:  MOVLW  7F
+069A:  MOVWF  27
+069C:  MOVLW  88
+069E:  MOVWF  26
+06A0:  RCALL  012C
+06A2:  MOVFF  03,19
+06A6:  MOVFF  02,18
+06AA:  MOVFF  01,17
+06AE:  MOVFF  00,16
+.................... out1= visualizacion1; 
+06B2:  MOVFF  19,1D
+06B6:  MOVFF  18,1C
+06BA:  MOVFF  17,1B
+06BE:  MOVFF  16,1A
+....................  
+.................... sumaxy=out1+out; 
+06C2:  BCF    FD8.1
+06C4:  MOVFF  1D,21
+06C8:  MOVFF  1C,20
+06CC:  MOVFF  1B,1F
+06D0:  MOVFF  1A,1E
+06D4:  MOVFF  0F,25
+06D8:  MOVFF  0E,24
+06DC:  MOVFF  0D,23
+06E0:  MOVFF  0C,22
+06E4:  BRA    0286
+06E6:  MOVFF  03,13
+06EA:  MOVFF  02,12
+06EE:  MOVFF  01,11
+06F2:  MOVFF  00,10
+....................  
+....................  
+....................  
+.................... if (out1>4) { OUTPUT_high(PIN_C1); OUTPUT_low(PIN_C4); OUTPUT_low(PIN_C7); OUTPUT_low(PIN_C2);goto sigue;} 
+06F6:  CLRF   21
+06F8:  CLRF   20
+06FA:  CLRF   1F
+06FC:  MOVLW  81
+06FE:  MOVWF  1E
+0700:  MOVFF  1D,25
+0704:  MOVFF  1C,24
+0708:  MOVFF  1B,23
+070C:  MOVFF  1A,22
+0710:  RCALL  04F2
+0712:  BNC   0728
+0714:  BCF    F94.1
+0716:  BSF    F8B.1
+0718:  BCF    F94.4
+071A:  BCF    F8B.4
+071C:  BCF    F94.7
+071E:  BCF    F8B.7
+0720:  BCF    F94.2
+0722:  BCF    F8B.2
+0724:  BRA    078C
+.................... else 
+0726:  BRA    0824
+....................  
+.................... if (out1>2) { OUTPUT_high(PIN_C4); OUTPUT_low(PIN_C1); OUTPUT_low(PIN_C7);OUTPUT_low(PIN_C2);goto sigue;} 
+0728:  CLRF   21
+072A:  CLRF   20
+072C:  CLRF   1F
+072E:  MOVLW  80
+0730:  MOVWF  1E
+0732:  MOVFF  1D,25
+0736:  MOVFF  1C,24
+073A:  MOVFF  1B,23
+073E:  MOVFF  1A,22
+0742:  RCALL  04F2
+0744:  BNC   075A
+0746:  BCF    F94.4
+0748:  BSF    F8B.4
+074A:  BCF    F94.1
+074C:  BCF    F8B.1
+074E:  BCF    F94.7
+0750:  BCF    F8B.7
+0752:  BCF    F94.2
+0754:  BCF    F8B.2
+0756:  BRA    078C
+.................... else 
+0758:  BRA    0824
+....................  
+....................  
+.................... if (out1<2) { OUTPUT_high(PIN_C7); OUTPUT_low(PIN_C4); OUTPUT_low(PIN_C1);OUTPUT_low(PIN_C2);goto sigue;} 
+075A:  MOVFF  1D,21
+075E:  MOVFF  1C,20
+0762:  MOVFF  1B,1F
+0766:  MOVFF  1A,1E
+076A:  CLRF   25
+076C:  CLRF   24
+076E:  CLRF   23
+0770:  MOVLW  80
+0772:  MOVWF  22
+0774:  RCALL  04F2
+0776:  BNC   078C
+0778:  BCF    F94.7
+077A:  BSF    F8B.7
+077C:  BCF    F94.4
+077E:  BCF    F8B.4
+0780:  BCF    F94.1
+0782:  BCF    F8B.1
+0784:  BCF    F94.2
+0786:  BCF    F8B.2
+0788:  BRA    078C
+.................... else 
+078A:  BRA    0824
+....................  
+.................... sigue: 
+....................  
+....................  
+....................  
+.................... if (out>4) { OUTPUT_high(PIN_C5); OUTPUT_low(PIN_C4); OUTPUT_low(PIN_C3);OUTPUT_low(PIN_C2);goto inicio;} 
+078C:  CLRF   21
+078E:  CLRF   20
+0790:  CLRF   1F
+0792:  MOVLW  81
+0794:  MOVWF  1E
+0796:  MOVFF  0F,25
+079A:  MOVFF  0E,24
+079E:  MOVFF  0D,23
+07A2:  MOVFF  0C,22
+07A6:  RCALL  04F2
+07A8:  BNC   07BE
+07AA:  BCF    F94.5
+07AC:  BSF    F8B.5
+07AE:  BCF    F94.4
+07B0:  BCF    F8B.4
+07B2:  BCF    F94.3
+07B4:  BCF    F8B.3
+07B6:  BCF    F94.2
+07B8:  BCF    F8B.2
+07BA:  BRA    0578
+.................... else 
+07BC:  BRA    0824
+....................  
+.................... if (out>2) { OUTPUT_high(PIN_C4); OUTPUT_low(PIN_C3); OUTPUT_low(PIN_C5);OUTPUT_low(PIN_C2);goto inicio;} 
+07BE:  CLRF   21
+07C0:  CLRF   20
+07C2:  CLRF   1F
+07C4:  MOVLW  80
+07C6:  MOVWF  1E
+07C8:  MOVFF  0F,25
+07CC:  MOVFF  0E,24
+07D0:  MOVFF  0D,23
+07D4:  MOVFF  0C,22
+07D8:  RCALL  04F2
+07DA:  BNC   07F0
+07DC:  BCF    F94.4
+07DE:  BSF    F8B.4
+07E0:  BCF    F94.3
+07E2:  BCF    F8B.3
+07E4:  BCF    F94.5
+07E6:  BCF    F8B.5
+07E8:  BCF    F94.2
+07EA:  BCF    F8B.2
+07EC:  BRA    0578
+.................... else 
+07EE:  BRA    0824
+....................  
+....................  
+.................... if (out<2) { OUTPUT_high(PIN_C3); OUTPUT_low(PIN_C4); OUTPUT_low(PIN_C5);OUTPUT_low(PIN_C2);goto inicio;} 
+07F0:  MOVFF  0F,21
+07F4:  MOVFF  0E,20
+07F8:  MOVFF  0D,1F
+07FC:  MOVFF  0C,1E
+0800:  CLRF   25
+0802:  CLRF   24
+0804:  CLRF   23
+0806:  MOVLW  80
+0808:  MOVWF  22
+080A:  RCALL  04F2
+080C:  BNC   0822
+080E:  BCF    F94.3
+0810:  BSF    F8B.3
+0812:  BCF    F94.4
+0814:  BCF    F8B.4
+0816:  BCF    F94.5
+0818:  BCF    F8B.5
+081A:  BCF    F94.2
+081C:  BCF    F8B.2
+081E:  BRA    0578
+.................... else 
+0820:  BRA    0824
+....................  
+....................  
+....................  
+.................... goto inicio;  
+0822:  BRA    0578
+....................  
+....................  
+....................   
+.................... } 
+....................  
+0824:  SLEEP 
+
+Configuration Fuses:
+   Word  1: 2100   XT NOOSCSEN
+   Word  2: 0E0E   BROWNOUT WDT128 NOWDT BORV20 PUT
+   Word  3: 0100   CCP2C1
+   Word  4: 0081   STVREN NODEBUG NOLVP
+   Word  5: C00F   NOPROTECT NOCPD NOCPB
+   Word  6: E00F   NOWRT NOWRTD NOWRTB NOWRTC
+   Word  7: 400F   NOEBTR NOEBTRB

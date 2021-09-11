@@ -1,0 +1,273 @@
+CCS PCH C Compiler, Version 4.065, 60563               05-oct-16 07:32
+
+               Filename: C:\Users\Andersson\Desktop\adqui\BLUETHOD.lst
+
+               ROM used: 416 bytes (1%)
+                         Largest free fragment is 32348
+               RAM used: 37 (2%) at main() level
+                         38 (2%) worst case
+               Stack:    2 worst case (1 in main + 1 for interrupts)
+
+*
+0000:  GOTO   00DE
+*
+0008:  MOVWF  05
+000A:  MOVFF  FD8,06
+000E:  MOVFF  FE0,07
+0012:  MOVLB  0
+0014:  MOVFF  FE9,0D
+0018:  MOVFF  FEA,08
+001C:  MOVFF  FE1,09
+0020:  MOVFF  FE2,0A
+0024:  MOVFF  FD9,0B
+0028:  MOVFF  FDA,0C
+002C:  MOVFF  FF3,14
+0030:  MOVFF  FF4,15
+0034:  MOVFF  FFA,16
+0038:  MOVFF  00,0F
+003C:  MOVFF  01,10
+0040:  MOVFF  02,11
+0044:  MOVFF  03,12
+0048:  MOVFF  04,13
+004C:  BTFSS  F9D.5
+004E:  GOTO   0058
+0052:  BTFSC  F9E.5
+0054:  GOTO   009E
+0058:  MOVFF  0F,00
+005C:  MOVFF  10,01
+0060:  MOVFF  11,02
+0064:  MOVFF  12,03
+0068:  MOVFF  13,04
+006C:  BSF    0E.7
+006E:  MOVFF  0D,FE9
+0072:  MOVFF  08,FEA
+0076:  MOVFF  09,FE1
+007A:  MOVFF  0A,FE2
+007E:  MOVFF  0B,FD9
+0082:  MOVFF  0C,FDA
+0086:  MOVFF  14,FF3
+008A:  MOVFF  15,FF4
+008E:  MOVFF  16,FFA
+0092:  MOVF   05,W
+0094:  MOVFF  07,FE0
+0098:  MOVFF  06,FD8
+009C:  RETFIE 0
+.................... #include <18f452.h> 
+.................... //////// Standard Header file for the PIC18F452 device //////////////// 
+.................... #device PIC18F452 
+.................... #list 
+....................  
+.................... #device ADC = 10 
+.................... #fuses XT,NOWDT 
+.................... #use delay(clock = 4000000) 
+*
+00B4:  CLRF   FEA
+00B6:  MOVLW  25
+00B8:  MOVWF  FE9
+00BA:  MOVF   FEF,W
+00BC:  BZ    00DA
+00BE:  MOVLW  01
+00C0:  MOVWF  01
+00C2:  CLRF   00
+00C4:  DECFSZ 00,F
+00C6:  BRA    00C4
+00C8:  DECFSZ 01,F
+00CA:  BRA    00C2
+00CC:  MOVLW  4A
+00CE:  MOVWF  00
+00D0:  DECFSZ 00,F
+00D2:  BRA    00D0
+00D4:  BRA    00D6
+00D6:  DECFSZ FEF,F
+00D8:  BRA    00BE
+00DA:  GOTO   016A (RETURN)
+.................... #use rs232(baud=9600,parity=N,xmit=PIN_C6,rcv=PIN_C7) 
+....................  
+....................  
+.................... CHAR VALOR1,conteo =0, conteo1=0, valor3=00, RECIBIDO; 
+.................... char duty; 
+.................... float valor; 
+.................... int16 voltaje; 
+....................  
+....................  
+....................  
+.................... void main() 
+.................... { 
+00DE:  CLRF   FF8
+00E0:  BCF    FD0.7
+00E2:  BSF    0D.7
+00E4:  CLRF   FEA
+00E6:  CLRF   FE9
+00E8:  MOVLW  19
+00EA:  MOVWF  FAF
+00EC:  MOVLW  A6
+00EE:  MOVWF  FAC
+00F0:  MOVLW  90
+00F2:  MOVWF  FAB
+00F4:  BSF    FC1.0
+00F6:  BSF    FC1.1
+00F8:  BSF    FC1.2
+00FA:  BCF    FC1.3
+00FC:  CLRF   19
+00FE:  CLRF   1A
+0100:  CLRF   1B
+....................  
+....................  
+....................           inicio: 
+....................   enable_interrupts(int_rda); 
+0102:  BSF    F9D.5
+....................           enable_interrupts(global); 
+0104:  MOVLW  C0
+0106:  IORWF  FF2,F
+....................  
+.................... if (VALOR1==1) {goto adc_int;} 
+0108:  DECFSZ 18,W
+010A:  BRA    0110
+010C:  BRA    011C
+.................... else 
+010E:  BRA    011C
+.................... if (VALOR1==2) {goto pwm_salida;;} 
+0110:  MOVF   18,W
+0112:  SUBLW  02
+0114:  BNZ   011A
+0116:  BRA    017A
+.................... else 
+0118:  BRA    011C
+.................... goto inicio; 
+011A:  BRA    0102
+....................  
+.................... adc_int: 
+....................  
+....................  enable_interrupts(int_rda); 
+011C:  BSF    F9D.5
+....................           enable_interrupts(global); 
+011E:  MOVLW  C0
+0120:  IORWF  FF2,F
+....................            
+.................... setup_adc_ports(AN0);    
+0122:  BCF    FC1.0
+0124:  BSF    FC1.1
+0126:  BSF    FC1.2
+0128:  BSF    FC1.3
+....................  
+.................... setup_adc(ADC_CLOCK_INTERNAL); 
+012A:  BCF    FC1.6
+012C:  BSF    FC2.6
+012E:  BSF    FC2.7
+0130:  BSF    FC1.7
+0132:  BSF    FC2.0
+.................... set_adc_channel(0); 
+0134:  MOVLW  00
+0136:  MOVWF  01
+0138:  MOVF   FC2,W
+013A:  ANDLW  C7
+013C:  IORWF  01,W
+013E:  MOVWF  FC2
+.................... delay_us(50); 
+0140:  MOVLW  10
+0142:  MOVWF  00
+0144:  DECFSZ 00,F
+0146:  BRA    0144
+0148:  NOP   
+....................  
+.................... voltaje = read_adc(); 
+014A:  BSF    FC2.2
+014C:  BTFSC  FC2.2
+014E:  BRA    014C
+0150:  MOVFF  FC3,22
+0154:  MOVFF  FC4,23
+....................  
+.................... PUTc(voltaje); 
+0158:  MOVF   22,W
+015A:  BTFSS  F9E.4
+015C:  BRA    015A
+015E:  MOVWF  FAD
+.................... delay_ms(500); 
+0160:  MOVLW  02
+0162:  MOVWF  24
+0164:  MOVLW  FA
+0166:  MOVWF  25
+0168:  BRA    00B4
+016A:  DECFSZ 24,F
+016C:  BRA    0164
+....................  
+....................  
+....................  
+.................... if (VALOR1==100) {goto inicio;} 
+016E:  MOVF   18,W
+0170:  SUBLW  64
+0172:  BNZ   0178
+0174:  BRA    0102
+.................... else 
+0176:  BRA    017A
+....................  
+.................... goto adc_int; 
+0178:  BRA    011C
+....................  
+....................  
+....................  
+....................  
+....................  
+....................  
+.................... pwm_salida: 
+....................  enable_interrupts(int_rda); 
+017A:  BSF    F9D.5
+....................           enable_interrupts(global); 
+017C:  MOVLW  C0
+017E:  IORWF  FF2,F
+.................... setup_timer_2(t2_div_by_16,249,1); 
+0180:  MOVLW  00
+0182:  IORLW  06
+0184:  MOVWF  FCA
+0186:  MOVLW  F9
+0188:  MOVWF  FCB
+.................... setup_ccp1(ccp_pwm); 
+018A:  BCF    F94.2
+018C:  BCF    F8B.2
+018E:  MOVLW  0C
+0190:  MOVWF  FBD
+.................... set_pwm1_duty(VALOR1); 
+0192:  MOVFF  18,FBE
+.................... if (VALOR1==100) {goto inicio;} 
+0196:  MOVF   18,W
+0198:  SUBLW  64
+019A:  BNZ   01A0
+019C:  BRA    0102
+.................... else 
+019E:  BRA    01A2
+.................... goto pwm_salida; 
+01A0:  BRA    017A
+....................  
+.................... } 
+....................  
+....................  
+....................  
+.................... #INT_RDA 
+....................  
+01A2:  SLEEP 
+.................... void serial_isr() 
+.................... { 
+.................... VALOR1=GETC(); 
+*
+009E:  BTFSS  F9E.5
+00A0:  BRA    009E
+00A2:  MOVFF  FAE,18
+....................  
+.................... PUTc(voltaje); 
+00A6:  MOVF   22,W
+00A8:  BTFSS  F9E.4
+00AA:  BRA    00A8
+00AC:  MOVWF  FAD
+....................  
+.................... } 
+00AE:  BCF    F9E.5
+00B0:  GOTO   0058
+
+Configuration Fuses:
+   Word  1: 2100   XT NOOSCSEN
+   Word  2: 0E0E   BROWNOUT WDT128 NOWDT BORV20 PUT
+   Word  3: 0100   CCP2C1
+   Word  4: 0081   STVREN NODEBUG NOLVP
+   Word  5: C00F   NOPROTECT NOCPD NOCPB
+   Word  6: E00F   NOWRT NOWRTD NOWRTB NOWRTC
+   Word  7: 400F   NOEBTR NOEBTRB

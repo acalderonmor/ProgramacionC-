@@ -1,0 +1,84 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     @INTERRUPT_AREA
+006     @INTERRUPT_AREA
+007     @INTERRUPT_AREA
+008     @INTERRUPT_AREA
+009     @INTERRUPT_AREA
+00A     @INTERRUPT_AREA
+00B     @INTERRUPT_AREA
+00C     @INTERRUPT_AREA
+00D     @INTERRUPT_AREA
+00E     @INTERRUPT_AREA
+00F     @INTERRUPT_AREA
+010     @INTERRUPT_AREA
+011     @INTERRUPT_AREA
+012     @INTERRUPT_AREA
+013     @INTERRUPT_AREA
+014     @INTERRUPT_AREA
+015     @INTERRUPT_AREA
+016     @INTERRUPT_AREA
+017     @INTERRUPT_AREA
+018     VALOR1
+019     conteo
+01A     conteo1
+01B     valor3
+01C     RECIBIDO
+01D     duty
+01E-021 valor
+022-023 voltaje
+024     main.@SCRATCH1
+025     @delay_ms1.P1
+F83     PSP_DATA
+FBB     CCP_2_LOW
+FBB-FBC CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+00B4  @delay_ms1
+00DE  main
+009E  serial_isr
+00DE  @cinit
+0081  inicio
+008E  adc_int
+00BD  pwm_salida
+
+Project Directory:
+    C:\Users\Andersson\Desktop\adqui\
+
+Project Files:
+    BLUETHOD.c
+    ..\..\..\..\PROGRA~2\PICC\devices\18f452.h
+
+Units:
+    C:\Users\Andersson\Desktop\adqui\BLUETHOD.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      BLUETHOD.err
+    Ext Symbols: BLUETHOD.esym
+    INHX32:      BLUETHOD.hex
+    Symbols:     BLUETHOD.sym
+    List:        BLUETHOD.lst
+    Debug/COFF:  BLUETHOD.cof
+    Project:     BLUETHOD.PJT
+    Call Tree:   BLUETHOD.tre
+    Statistics:  BLUETHOD.sta

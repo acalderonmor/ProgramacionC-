@@ -1,0 +1,132 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+006-007 MAIN.voltaje
+008-00B MAIN.temp
+00C-00F @DIVFF.P1
+00C     lcd_init.i
+00C-00D @ITOF.P1
+00C     MAIN.@SCRATCH1
+00D-010 @PRINTF_L32D_73FPFPFR.P1
+00D     lcd_init.@SCRATCH1
+00E     lcd_init.@SCRATCH2
+010-013 @DIVFF.P1
+011     @PRINTF_L32D_73FPFPFR.P1
+012     @PRINTF_L32D_73FPFPFR.@SCRATCH1
+013     @PRINTF_L32D_73FPFPFR.@SCRATCH2
+014     @DIVFF.@SCRATCH1
+014     @PRINTF_L32D_73FPFPFR.@SCRATCH3
+015     @DIVFF.@SCRATCH2
+015     @PRINTF_L32D_73FPFPFR.@SCRATCH4
+016     @DIVFF.@SCRATCH3
+016     @PRINTF_L32D_73FPFPFR.@SCRATCH5
+017     @DIVFF.@SCRATCH4
+017     @PRINTF_L32D_73FPFPFR.@SCRATCH6
+018     @DIVFF.@SCRATCH5
+018     @PRINTF_L32D_73FPFPFR.@SCRATCH7
+019     @DIVFF.@SCRATCH6
+019     @PRINTF_L32D_73FPFPFR.@SCRATCH8
+01A     lcd_putc.c
+01A-01D @FTOSD.P1
+01A-01D @ADDFF.P2
+01A-01D @MULFF.P3
+01A-01D @DIV3232.P4
+01B     @delay_ms1.P1
+01B     lcd_gotoxy.x
+01C     lcd_gotoxy.y
+01D     lcd_gotoxy.address
+01E-021 @ADDFF.P1
+01E-021 @MULFF.P2
+01E-021 @DIV3232.P3
+01E     lcd_gotoxy.@SCRATCH1
+01E     @FTOSD.@SCRATCH1
+01F     lcd_send_byte.address
+020     lcd_send_byte.n
+021     lcd_read_byte.low
+021     lcd_send_byte.@SCRATCH1
+022     lcd_send_nibble.n
+022     lcd_read_byte.high
+022     @MULFF.@SCRATCH1
+022     @ADDFF.@SCRATCH1
+022     @DIV3232.@SCRATCH1
+023     lcd_read_byte.@SCRATCH1
+023     @MULFF.@SCRATCH2
+023     @ADDFF.@SCRATCH2
+023     @DIV3232.@SCRATCH2
+024     @MULFF.@SCRATCH3
+024     @ADDFF.@SCRATCH3
+024     @DIV3232.@SCRATCH3
+025     @ADDFF.@SCRATCH4
+025     @DIV3232.@SCRATCH4
+026     @ADDFF.@SCRATCH5
+026     @DIV3232.@SCRATCH5
+027     @ADDFF.@SCRATCH6
+028     @ADDFF.@SCRATCH7
+029     @ADDFF.@SCRATCH8
+F81     lcd
+F83     PSP_DATA
+FBB     CCP_2_LOW
+FBB-FBC CCP_2
+FBC     CCP_2_HIGH
+FBE-FBF CCP_1
+FBE     CCP_1_LOW
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0056  @delay_ms1
+0004  LCD_INIT_STRING
+0096  lcd_read_byte
+007E  lcd_send_nibble
+00CE  lcd_send_byte
+0104  lcd_init
+02F0  lcd_gotoxy
+0312  lcd_putc
+0930  MAIN
+015C  @ITOF
+0194  @DIVFF
+0018  @const89
+003A  @const90
+0356  @MULFF
+044A  @ADDFF
+06B6  @FTOSD
+06F6  @DIV3232
+0770  @PRINTF_L32D_73FPFPFR
+0930  @cinit
+04A2  inicio
+
+Project Directory:
+    C:\Users\Andersson\Desktop\adqui\
+
+Project Files:
+    temperature.c
+    ..\..\..\..\Program Files (x86)\PICC\devices\18f452.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\lcd.c
+
+Units:
+    C:\Users\Andersson\Desktop\adqui\temperature.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      temperature.err
+    Ext Symbols: temperature.esym
+    INHX32:      temperature.hex
+    Symbols:     temperature.sym
+    List:        temperature.lst
+    Debug/COFF:  temperature.cof
+    Project:     temperature.PJT
+    Call Tree:   temperature.tre
+    Statistics:  temperature.sta

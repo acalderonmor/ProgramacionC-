@@ -1,0 +1,46 @@
+
+ROM used: 1482 (5%)
+          1482 (5%) including unused fragments
+
+          2 Average locations per line
+          9 Average locations per statement
+
+RAM used: 19 (1%) at main() level
+          33 (2%) worst case
+
+Stack used: 1 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+  109   106  63  pwm.c
+  332     0   0  ..\..\..\..\Program Files (x86)\PICC\devices\18f452.h
+  180    63  37  ..\..\..\..\Program Files (x86)\PICC\drivers\lcd.c
+----- -----
+  621   169 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0    834  28   4  3308  7.4  MAIN
+0    242   8  11             @MULFF
+0    346  12  14             @DIVFF
+0     56   2   4             @SFTOI
+
+Program metrics:
+    Functions               1
+    Statements              169
+    Comments                135
+    Volume (V)              3317
+    Difficilty (D)          7.3
+    Effort to implement (E) 24208
+    Time to implement (T)   22 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   15
+    Maintainability (MI)    5
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  1478  31286  
+
+
+

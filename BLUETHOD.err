@@ -1,0 +1,8 @@
+>>> Warning 202 "BLUETHOD.c" Line 8(20,26): Variable never used:   conteo
+>>> Warning 202 "BLUETHOD.c" Line 8(24,31): Variable never used:   conteo1
+>>> Warning 202 "BLUETHOD.c" Line 8(35,41): Variable never used:   valor3
+>>> Warning 202 "BLUETHOD.c" Line 8(46,54): Variable never used:   RECIBIDO
+>>> Warning 202 "BLUETHOD.c" Line 9(6,10): Variable never used:   duty
+>>> Warning 202 "BLUETHOD.c" Line 10(7,12): Variable never used:   valor
+      Memory usage:   ROM=1%      RAM=2% - 2%
+      0 Errors,  6 Warnings.

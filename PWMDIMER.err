@@ -1,0 +1,6 @@
+>>> Warning 202 "PWMDIMER.c" Line 10(5,11): Variable never used:   conteo
+>>> Warning 202 "PWMDIMER.c" Line 11(8,9): Variable never used:   X
+>>> Warning 202 "PWMDIMER.c" Line 11(15,20): Variable never used:   DATA1
+>>> Warning 202 "PWMDIMER.c" Line 11(21,26): Variable never used:   DATA2
+      Memory usage:   ROM=0%      RAM=1% - 1%
+      0 Errors,  4 Warnings.

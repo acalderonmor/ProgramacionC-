@@ -1,0 +1,47 @@
+
+ROM used: 2086 (6%)
+          2086 (6%) including unused fragments
+
+          5 Average locations per line
+          36 Average locations per statement
+
+RAM used: 33 (2%) at main() level
+          47 (3%) worst case
+
+Stack used: 1 worst case (out of 31 total available)
+
+Lines Stmts  %   Files
+----- ----- ---  -----
+   73    58 100  panel.c
+  332     0   0  ..\..\..\..\Program Files (x86)\PICC\devices\18f452.h
+----- -----
+  405    58 Total
+
+Page ROM  %  RAM   Vol Diff  Functions:
+---- --- --- ---   --- ----  ----------
+0    702  17  28  1744  7.0  main
+0     54   1   2             @ITOF
+0    242   6  11             @MULFF
+0    346   8  14             @DIVFF
+0    620  15  16             @ADDFF
+0    118   3  10             @FLT
+
+Program metrics:
+    Functions               1
+    Statements              58
+    Comments                80
+    Volume (V)              1758
+    Difficilty (D)          6.7
+    Effort to implement (E) 11782
+    Time to implement (T)   11 minutes
+    Est Delivered Bugs (B)  0
+    Cyclomatic Complexity   6
+    Maintainability (MI)    113
+
+ Segment     Used  Free
+-----------  ----  ----
+00000-00002     4  0  
+00004-07FFE  2082  30682  
+
+
+

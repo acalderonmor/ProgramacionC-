@@ -1,0 +1,127 @@
+CCS PCH C Compiler, Version 4.065, 60563               14-oct-16 19:39
+
+               Filename: C:\Users\Andersson\Desktop\adqui\dimer.lst
+
+               ROM used: 146 bytes (0%)
+                         Largest free fragment is 32622
+               RAM used: 13 (1%) at main() level
+                         13 (1%) worst case
+               Stack:    1 locations
+
+*
+0000:  GOTO   0052
+.................... #include <18f452.h> 
+.................... //////// Standard Header file for the PIC18F452 device //////////////// 
+.................... #device PIC18F452 
+.................... #list 
+....................  
+.................... #use delay(clock=4000000) 
+0004:  CLRF   FEA
+0006:  MOVLW  0C
+0008:  MOVWF  FE9
+000A:  MOVF   FEF,W
+000C:  BZ    002A
+000E:  MOVLW  01
+0010:  MOVWF  01
+0012:  CLRF   00
+0014:  DECFSZ 00,F
+0016:  BRA    0014
+0018:  DECFSZ 01,F
+001A:  BRA    0012
+001C:  MOVLW  4A
+001E:  MOVWF  00
+0020:  DECFSZ 00,F
+0022:  BRA    0020
+0024:  BRA    0026
+0026:  DECFSZ FEF,F
+0028:  BRA    000E
+002A:  RETLW  00
+002C:  MOVLW  15
+002E:  SUBWF  0C,F
+0030:  BNC   004E
+0032:  CLRF   FEA
+0034:  MOVLW  0C
+0036:  MOVWF  FE9
+0038:  MOVLW  FC
+003A:  ANDWF  FEF,F
+003C:  BCF    FD8.0
+003E:  RRCF   FEF,F
+0040:  RRCF   FEF,F
+0042:  MOVF   FEF,W
+0044:  BZ    004E
+0046:  BRA    004A
+0048:  NOP   
+004A:  DECFSZ FEF,F
+004C:  BRA    0048
+004E:  GOTO   006C (RETURN)
+.................... #fuses xt,noprotect,nowdt 
+.................... #byte trisa=0x85 
+.................... #byte porta=0x05 
+.................... #byte trisB=0x86 
+.................... #byte portB=0x06 
+.................... #byte trisD=0x88 
+.................... #byte portD=0x08 
+.................... int conteo=0; 
+.................... LONG  X=5100,DATA1,DATA2; 
+....................  
+....................  
+.................... void main (){ 
+0052:  CLRF   FF8
+0054:  BCF    FD0.7
+0056:  CLRF   FEA
+0058:  CLRF   FE9
+005A:  BSF    FC1.0
+005C:  BSF    FC1.1
+005E:  BSF    FC1.2
+0060:  BCF    FC1.3
+0062:  CLRF   05
+0064:  MOVLW  EC
+0066:  MOVWF  06
+0068:  MOVLW  13
+006A:  MOVWF  07
+.................... inicio: 
+.................... if (input_state(pin_a0)==1) {  goto tiempo;} 
+006C:  BTFSS  F80.0
+006E:  BRA    0074
+0070:  BRA    0076
+.................... else 
+0072:  BRA    0076
+.................... goto inicio; 
+0074:  BRA    006C
+....................  
+....................  
+.................... tiempo: 
+....................  
+....................  
+....................  
+....................   OUTPUT_LOW (PIN_D2); 
+0076:  BCF    F95.2
+0078:  BCF    F8C.2
+....................   delay_Us(4000); 
+007A:  MOVLW  04
+007C:  MOVWF  0C
+007E:  RCALL  0004
+....................     OUTPUT_HIGH(PIN_D2); 
+0080:  BCF    F95.2
+0082:  BSF    F8C.2
+....................    delay_Us(1100); 
+0084:  MOVLW  01
+0086:  MOVWF  0C
+0088:  RCALL  0004
+008A:  MOVLW  64
+008C:  MOVWF  0C
+008E:  BRA    002C
+....................     goto inicio; 
+....................  
+....................  
+.................... } 
+0090:  SLEEP 
+
+Configuration Fuses:
+   Word  1: 2100   XT NOOSCSEN
+   Word  2: 0E0E   BROWNOUT WDT128 NOWDT BORV20 PUT
+   Word  3: 0100   CCP2C1
+   Word  4: 0081   STVREN NODEBUG NOLVP
+   Word  5: C00F   NOPROTECT NOCPD NOCPB
+   Word  6: E00F   NOWRT NOWRTD NOWRTB NOWRTC
+   Word  7: 400F   NOEBTR NOEBTRB

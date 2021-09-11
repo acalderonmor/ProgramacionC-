@@ -1,0 +1,101 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+005     x
+005     porta
+006     duty
+006     portb
+007     dutyinicia
+008     out
+008     portd
+009     out1
+00A     contador
+00B-00E porcentaje
+00F-012 @MULFF.P1
+00F     MAIN.@SCRATCH1
+010     MAIN.@SCRATCH2
+011     MAIN.@SCRATCH3
+012     MAIN.@SCRATCH4
+013-016 @SFTOI.P1
+013-016 @DIVFF.P2
+013-016 @MULFF.P3
+017-01A @DIVFF.P1
+017     @MULFF.@SCRATCH1
+018     @MULFF.@SCRATCH2
+019     @MULFF.@SCRATCH3
+01B     @DIVFF.@SCRATCH1
+01C     @DIVFF.@SCRATCH2
+01D     @DIVFF.@SCRATCH3
+01E     @DIVFF.@SCRATCH4
+01F     @DIVFF.@SCRATCH5
+020     @DIVFF.@SCRATCH6
+085     trisa
+086     trisb
+088     trisd
+F81     lcd
+F83     PSP_DATA
+FBB-FBC CCP_2
+FBB     CCP_2_LOW
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @READ_PROGRAM_MEMORY.P1
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+0288  MAIN
+0004  @MULFF
+00F6  @DIVFF
+0250  @SFTOI
+0288  @cinit
+0155  inicio
+0166  sigue1
+0172  sigue2
+017E  sigue3
+018A  sigue4
+0196  sigue5
+01A2  sigue6
+01AE  sigue7
+01BA  sigue8
+01C6  sigue9
+01DD  sigue10
+01EF  senal250
+022C  senal500
+0269  senal1000
+02A6  senal2000
+
+Project Directory:
+    C:\Users\Andersson\Desktop\adqui\
+
+Project Files:
+    pwm.c
+    ..\..\..\..\Program Files (x86)\PICC\devices\18f452.h
+    ..\..\..\..\Program Files (x86)\PICC\drivers\lcd.c
+
+Units:
+    C:\Users\Andersson\Desktop\adqui\pwm.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-255
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      pwm.err
+    Ext Symbols: pwm.esym
+    INHX32:      pwm.hex
+    Symbols:     pwm.sym
+    List:        pwm.lst
+    Debug/COFF:  pwm.cof
+    Project:     pwm.PJT
+    Call Tree:   pwm.tre
+    Statistics:  pwm.sta

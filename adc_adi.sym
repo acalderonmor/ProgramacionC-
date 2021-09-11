@@ -1,0 +1,147 @@
+000     @SCRATCH
+001     @SCRATCH
+001     _RETURN_
+002     @SCRATCH
+003     @SCRATCH
+004     @SCRATCH
+006-007 MAIN.voltaje
+008-00B MAIN.visualizacion
+00C-00F MAIN.out
+010-011 MAIN.voltaje1
+012-015 MAIN.visualizacion1
+016-019 MAIN.out1
+01A-01D @PRINTF_L32D_73FPFPFR.P1
+01A-01B @PRINTF_LD_73.P2
+01A-01B @ITOF.P3
+01A     lcd_init.i
+01A     MAIN.@SCRATCH1
+01B     lcd_init.@SCRATCH1
+01B     MAIN.@SCRATCH2
+01C     lcd_init.@SCRATCH2
+01C     MAIN.@SCRATCH3
+01C     @PRINTF_LD_73.@SCRATCH1
+01D     MAIN.@SCRATCH4
+01D     @PRINTF_LD_73.@SCRATCH2
+01E     @PRINTF_L32D_73FPFPFR.P1
+01E-021 @DIVFF.P2
+01E     @PRINTF_LD_73.@SCRATCH3
+01F     @PRINTF_L32D_73FPFPFR.@SCRATCH1
+01F     @PRINTF_LD_73.@SCRATCH4
+020     @PRINTF_L32D_73FPFPFR.@SCRATCH2
+020     @PRINTF_LD_73.@SCRATCH5
+021     @PRINTF_L32D_73FPFPFR.@SCRATCH3
+021     @PRINTF_LD_73.@SCRATCH6
+022-025 @DIVFF.P1
+022     @PRINTF_L32D_73FPFPFR.@SCRATCH4
+022     @PRINTF_LD_73.@SCRATCH7
+023     @PRINTF_L32D_73FPFPFR.@SCRATCH5
+024     @PRINTF_L32D_73FPFPFR.@SCRATCH6
+025     @PRINTF_L32D_73FPFPFR.@SCRATCH7
+026     @DIVFF.@SCRATCH1
+026     @PRINTF_L32D_73FPFPFR.@SCRATCH8
+027-02A @ADDFF.P1
+027-02A @FTOSD.P2
+027     lcd_putc.c
+027-02A @DIV3232.P1
+027-02A @MULFF.P2
+027     @DIVFF.@SCRATCH2
+028     lcd_gotoxy.x
+028     @delay_ms1.P1
+028     @DIVFF.@SCRATCH3
+029     lcd_gotoxy.y
+029     @DIVFF.@SCRATCH4
+02A     lcd_gotoxy.address
+02A     @DIVFF.@SCRATCH5
+02B-02E @DIV3232.P1
+02B-02E @MULFF.P2
+02B-02E @ADDFF.P3
+02B     lcd_gotoxy.@SCRATCH1
+02B     @DIVFF.@SCRATCH6
+02B     @FTOSD.@SCRATCH1
+02C     lcd_send_byte.address
+02D     lcd_send_byte.n
+02E     lcd_read_byte.low
+02E     lcd_send_byte.@SCRATCH1
+02F     lcd_read_byte.high
+02F     lcd_send_nibble.n
+02F     @MULFF.@SCRATCH1
+02F     @ADDFF.@SCRATCH1
+02F     @DIV3232.@SCRATCH1
+030     lcd_read_byte.@SCRATCH1
+030     @MULFF.@SCRATCH2
+030     @ADDFF.@SCRATCH2
+030     @DIV3232.@SCRATCH2
+031     @MULFF.@SCRATCH3
+031     @ADDFF.@SCRATCH3
+031     @DIV3232.@SCRATCH3
+032     @ADDFF.@SCRATCH4
+032     @DIV3232.@SCRATCH4
+033     @ADDFF.@SCRATCH5
+033     @DIV3232.@SCRATCH5
+034     @ADDFF.@SCRATCH6
+035     @ADDFF.@SCRATCH7
+036     @ADDFF.@SCRATCH8
+F81     lcd
+F83     PSP_DATA
+FBB     CCP_2_LOW
+FBB-FBC CCP_2
+FBC     CCP_2_HIGH
+FBE     CCP_1_LOW
+FBE-FBF CCP_1
+FBF     CCP_1_HIGH
+FE9-FEA @READ_PROGRAM_MEMORY.P1
+FE9-FEA @WRITE_PROGRAM_MEMORY.P2
+FF6-FF8 @WRITE_PROGRAM_MEMORY.P1
+FF6-FF8 @READ_PROGRAM_MEMORY.P2
+
+ROM Allocation:
+002C  @delay_ms1
+0004  LCD_INIT_STRING
+006C  lcd_read_byte
+0054  lcd_send_nibble
+00A4  lcd_send_byte
+00DA  lcd_init
+03B4  lcd_gotoxy
+03D6  lcd_putc
+09E8  MAIN
+0132  @ITOF
+0168  @MULFF
+025A  @DIVFF
+041A  @ADDFF
+0686  @FTOSD
+06C6  @DIV3232
+0740  @PRINTF_L32D_73FPFPFR
+08FE  @PRINTF_LD_73
+0018  @const112
+09E8  @cinit
+04FE  inicio
+
+Project Directory:
+    C:\Users\Andersson\Desktop\adqui\
+
+Project Files:
+    adc_adi.c
+    ..\..\..\..\PROGRA~2\PICC\devices\18f452.h
+    ..\..\..\..\PROGRA~2\PICC\drivers\lcd.c
+
+Units:
+    C:\Users\Andersson\Desktop\adqui\adc_adi.c (main)
+
+Compiler Settings:
+    Processor:      PIC18F452
+    Pointer Size:   16
+    ADC Range:      0-1023
+    Opt Level:      9
+    Short,Int,Long: UNSIGNED: 1,8,16
+    Float,Double:   32,32
+
+Output Files:
+    Errors:      adc_adi.err
+    Ext Symbols: adc_adi.esym
+    INHX32:      adc_adi.hex
+    Symbols:     adc_adi.sym
+    List:        adc_adi.lst
+    Debug/COFF:  adc_adi.cof
+    Project:     adc_adi.PJT
+    Call Tree:   adc_adi.tre
+    Statistics:  adc_adi.sta

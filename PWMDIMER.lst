@@ -1,0 +1,93 @@
+CCS PCH C Compiler, Version 4.065, 60563               14-oct-16 18:52
+
+               Filename: C:\Users\Andersson\Desktop\adqui\PWMDIMER.lst
+
+               ROM used: 72 bytes (0%)
+                         Largest free fragment is 32696
+               RAM used: 19 (1%) at main() level
+                         19 (1%) worst case
+               Stack:    0 locations
+
+*
+0000:  GOTO   0004
+.................... #include <18f452.h> 
+.................... //////// Standard Header file for the PIC18F452 device //////////////// 
+.................... #device PIC18F452 
+.................... #list 
+....................  
+.................... #use delay(clock=4000000) 
+.................... #fuses xt,noprotect,nowdt 
+.................... #byte trisa=0x85 
+.................... #byte porta=0x05 
+.................... #byte trisB=0x86 
+.................... #byte portB=0x06 
+.................... #byte trisD=0x88 
+.................... #byte portD=0x08 
+.................... int conteo=0; 
+.................... FLOAT  X=5100,DATA1,DATA2; 
+....................  
+....................  
+.................... void main (){ 
+0004:  CLRF   FF8
+0006:  BCF    FD0.7
+0008:  CLRF   FEA
+000A:  CLRF   FE9
+000C:  BSF    FC1.0
+000E:  BSF    FC1.1
+0010:  BSF    FC1.2
+0012:  BCF    FC1.3
+0014:  CLRF   05
+0016:  MOVLW  8B
+0018:  MOVWF  06
+001A:  MOVLW  1F
+001C:  MOVWF  07
+001E:  MOVLW  60
+0020:  MOVWF  08
+0022:  CLRF   09
+....................  
+....................  
+....................  
+.................... inicio: 
+.................... if (input_state(pin_a0)==1) {  goto PWM123;} 
+0024:  BTFSS  F80.0
+0026:  BRA    002C
+0028:  BRA    002E
+.................... else 
+002A:  BRA    002E
+.................... goto inicio; 
+002C:  BRA    0024
+....................  
+.................... PWM123: 
+....................  
+.................... setup_timer_2(t2_div_by_16, 255,8); 
+002E:  MOVLW  38
+0030:  IORLW  06
+0032:  MOVWF  FCA
+0034:  MOVLW  FF
+0036:  MOVWF  FCB
+.................... setup_ccp1(ccp_pwm); 
+0038:  BCF    F94.2
+003A:  BCF    F8B.2
+003C:  MOVLW  0C
+003E:  MOVWF  FBD
+.................... set_pwm1_duty(127); 
+0040:  MOVLW  7F
+0042:  MOVWF  FBE
+....................  
+....................  
+.................... GOTO INICIO; 
+0044:  BRA    0024
+....................  
+....................  
+....................  
+.................... } 
+0046:  SLEEP 
+
+Configuration Fuses:
+   Word  1: 2100   XT NOOSCSEN
+   Word  2: 0E0E   BROWNOUT WDT128 NOWDT BORV20 PUT
+   Word  3: 0100   CCP2C1
+   Word  4: 0081   STVREN NODEBUG NOLVP
+   Word  5: C00F   NOPROTECT NOCPD NOCPB
+   Word  6: E00F   NOWRT NOWRTD NOWRTB NOWRTC
+   Word  7: 400F   NOEBTR NOEBTRB
